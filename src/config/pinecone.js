@@ -10,14 +10,13 @@ const getIndex = async () => {
 
     try {
         const response = await pc.listIndexes();
-        const indexes = response.indexes;  // Access the 'indexes' property
+        const indexes = response.indexes;  
 
-        console.log('Indexes:', indexes);  // Log the output to check the actual indexes array
+        console.log('Indexes:', indexes);  
 
             const existingIndex = indexes.some(i => i.name === index);
 
             if (!existingIndex) {
-                // Specify the 'spec' (pods or serverless configuration)
                 await pc.createIndex({
                     name: index,
                     dimension: 1024,
@@ -44,7 +43,7 @@ const getIndex = async () => {
         
     } catch (error) {
         console.error('Error:', error);
-        throw error;  // Rethrow the error to handle it upstream if needed
+        throw error;  
     }
 };
 
